@@ -1,0 +1,109 @@
+/* Project Details Modal Styles - Continued */
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.metric-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.code-preview {
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    overflow-x: auto;
+}
+
+.code-preview pre {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.code-preview code {
+    display: block;
+    white-space: pre;
+}
+
+/* Modal specific styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--background);
+    margin: auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: var(--border-radius);
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(100px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: var(--primary-color);
+    color: var(--background);
+}
+
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--background-secondary);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary);
+}

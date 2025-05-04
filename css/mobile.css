@@ -1,0 +1,89 @@
+/* Mobile Responsive Styles */
+
+/* Mobile Menu Overlay */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        background: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 20px 0;
+    }
+    
+    .nav-links a {
+        font-size: 24px;
+    }
+    
+    /* Hero adjustments */
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Experience timeline adjustments */
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .experience-meta {
+        border-left: 3px solid var(--accent-color);
+        padding-left: 15px;
+    }
+    
+    /* Projects grid adjustments */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 30px;
+    }
+    
+    /* Contact grid adjustments */
+    .contact-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-link {
+        margin-bottom: 15px;
+    }
+    
+    /* Section padding adjustments */
+    section {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        margin-bottom: 30px;
+    }
+}
