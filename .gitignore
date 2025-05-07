@@ -63,4 +63,13 @@ draft*
 !README.md
 performance-optimization.md
 portfolio-index.md
-project-*.md
+project-binko.md
+project-financegpt.md
+project-malt.md
+project-gofusion.md
+project-tableau.md
+
+# Others files
+Gemfile
+project-detail.html
+.nojekyll
