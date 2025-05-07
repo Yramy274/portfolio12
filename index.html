@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sackdiphat SOUNTHALA</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,19 +14,22 @@
         }
 
         body {
-            font-family: 'NType82';
+            font-family: 'NType82', 'Inter', sans-serif;
             background: #ffffff;
             color: #000;
             line-height: 1.4;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
 
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 32px;
+            padding: 60px 32px;
             position: relative;
+            box-sizing: border-box;
         }
 
         .hero-content {
@@ -201,6 +204,14 @@
 
         .tableau-preview {
             margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .tableau-preview img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            display: block;
         }
 
         /* Coding Section */
@@ -232,6 +243,7 @@
             height: 100%;
             object-fit: contain;
             padding: 16px;
+            max-width: 100%;
         }
 
         /* Image Generation Section */
@@ -355,9 +367,10 @@
         .workflow-image {
             width: 100%;
             height: 300px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 16px;
             margin: 24px 0;
+            max-width: 100%;
         }
 
         .footer {
@@ -430,6 +443,22 @@
             --primary-color: #000000;
         }
 
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content {
+                gap: 40px;
+            }
+            
+            .profile-circle {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .section > * {
+                max-width: 90%;
+            }
+        }
+        
         @media (max-width: 1024px) {
             .hero-content {
                 flex-direction: column;
@@ -449,28 +478,127 @@
             .dataviz-grid,
             .automation-grid {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
             
             .coding-grid,
             .img-gen-grid {
                 grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .app-preview {
+                height: 450px;
+            }
+            
+            .image-slider {
+                height: 450px;
             }
         }
 
         @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 60px 16px;
+            }
+            
             .hero h1 {
                 font-size: 36px;
             }
             
+            .hero p {
+                font-size: 18px;
+            }
+            
             .section {
-                padding: 80px 16px;
+                padding: 60px 16px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+                margin-bottom: 24px;
+            }
+            
+            .tableau-title {
+                font-size: 28px;
+            }
+            
+            .tableau-subtitle {
+                font-size: 16px;
+            }
+            
+            .contact-links {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            
+            .contact-link {
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+            
+            .contact-link i {
+                font-size: 20px;
+            }
+            
+            .code-card {
+                padding: 24px;
+            }
+            
+            .automation-card {
+                padding: 24px;
             }
         }
 
         @media (max-width: 480px) {
             .profile-circle {
-                width: 250px;
-                height: 250px;
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .app-preview {
+                height: 300px;
+            }
+            
+            .image-slider {
+                height: 300px;
+            }
+            
+            .workflow-image {
+                height: 200px;
+            }
+            
+            .action-button {
+                padding: 12px 24px;
+                font-size: 14px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .tech-tags {
+                justify-content: center;
             }
         }
     </style>
@@ -479,7 +607,7 @@
     <div class="hero">
         <div class="hero-content">
             <div class="profile-circle">
-                <img src="images/Profile Picture.png" alt="Profile" class="profile-image">
+                <img loading="lazy" src="images/Profile Picture.png" alt="Profile" class="profile-image">
             </div>
             <div class="hero-text">
                 <h1>Data Analyst,</h1>
@@ -501,7 +629,7 @@
                 <h3 class="tableau-title">Bank Customer Attrition</h3>
                 <p class="tableau-subtitle">Interactive dashboard analyzing customer churn patterns and risk factors</p>
                 <div class="tableau-preview">
-                    <img src="https://public.tableau.com/static/images/Ba/BankCustomerAttrition_17381608611290/BankCustomerAttrition/1.png" alt="Bank Customer Attrition Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
+                    <img loading="lazy" src="https://public.tableau.com/static/images/Ba/BankCustomerAttrition_17381608611290/BankCustomerAttrition/1.png" alt="Bank Customer Attrition Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
                 </div>
                 <a href="https://public.tableau.com/app/profile/sackdiphat.sounthala/viz/BankCustomerAttrition_17381608611290/BankCustomerAttrition" class="action-button" target="_blank">Explore Dashboard →</a>
             </div>
@@ -509,7 +637,7 @@
                 <h3 class="tableau-title">Superstore Analytics</h3>
                 <p class="tableau-subtitle">Business intelligence dashboard for retail performance metrics</p>
                 <div class="tableau-preview">
-                    <img src="https://public.tableau.com/static/images/Su/SuperstoreDashboard_17203874151950/Overview/1.png" alt="Superstore Analytics Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
+                    <img loading="lazy" src="https://public.tableau.com/static/images/Su/SuperstoreDashboard_17203874151950/Overview/1.png" alt="Superstore Analytics Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
                 </div>
                 <a href="https://public.tableau.com/app/profile/sackdiphat.sounthala/viz/SuperstoreDashboard_17203874151950/Overview" class="action-button" target="_blank">View Analytics →</a>
             </div>
@@ -517,7 +645,7 @@
                 <h3 class="tableau-title">Sales Dashboard</h3>
                 <p class="tableau-subtitle">E-commerce sales performance and insights tracker</p>
                 <div class="tableau-preview">
-                    <img src="https://public.tableau.com/static/images/Sa/SalesDashboard_17378240121890/SalesDashboard/1.png" alt="Sales Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
+                    <img loading="lazy" src="https://public.tableau.com/static/images/Sa/SalesDashboard_17378240121890/SalesDashboard/1.png" alt="Sales Dashboard Preview" style="width: 100%; border-radius: 8px; margin-bottom: 16px;">
                 </div>
                 <a href="https://public.tableau.com/app/profile/sackdiphat.sounthala/viz/SalesDashboard_17378240121890/SalesDashboard" class="action-button" target="_blank">View Sales →</a>
             </div>
@@ -554,15 +682,15 @@
                 <a href="https://financegpt.streamlit.app/" class="action-button" target="_blank" style="margin-top: 32px;">Launch App →</a>
             </div>
             <div class="app-preview">
-                <img src="images/FinanceGPT.png" alt="FinanceGPT App Preview" style="width: 100%; height: 100%; object-fit: contain; padding: 16px; border-radius: 16px; border: 1px solid #e0e0e0;">
+                <img loading="lazy" src="images/FinanceGPT.png" alt="FinanceGPT App Preview" style="width: 100%; height: 100%; object-fit: contain; padding: 16px; border-radius: 16px; border: 1px solid #e0e0e0;">
             </div>
         </div>
 
         <!-- Part 2: Binko -->
         <div class="coding-grid">
             <div class="image-slider">
-                <img src="images/Binko_Project 1.jpg" alt="Binko Beta" class="slider-image active">
-                <img src="images/Binko_Project 2.jpg" alt="Binko Final" class="slider-image">
+                <img loading="lazy" src="images/Binko_Project 1.jpg" alt="Binko Beta" class="slider-image active">
+                <img loading="lazy" src="images/Binko_Project 2.jpg" alt="Binko Final" class="slider-image">
                 <div class="slider-controls">
                     <div class="slider-dot active" data-slide="0"></div>
                     <div class="slider-dot" data-slide="1"></div>
@@ -612,7 +740,7 @@
                         </ul>
                     </div>
                 </div>
-                <img src="images/Make Workflow.png" alt="MALT Workflow" class="workflow-image">
+                <img loading="lazy" src="images/Make Workflow.png" alt="MALT Workflow" class="workflow-image">
                 <div class="metrics-grid">
                     <div class="metric-item">
                         <div class="metric-value">80%</div>
@@ -634,7 +762,7 @@
                         </ul>
                     </div>
                 </div>
-                <img src="images/GO FUSION Make Workflow.png" alt="Go Fusion Workflow" class="workflow-image">
+                <img loading="lazy" src="images/GO FUSION Make Workflow.png" alt="Go Fusion Workflow" class="workflow-image">
                 <div class="metrics-grid">
                     <div class="metric-item">
                         <div class="metric-value">4.32g</div>
@@ -650,6 +778,51 @@
     </footer>
 
     <script>
+        // Mobile menu functionality
+        function setupMobileMenu() {
+            // Add mobile menu toggle button if it doesn't exist yet
+            if (!document.querySelector('.mobile-menu-toggle')) {
+                const header = document.createElement('header');
+                header.className = 'mobile-header';
+                header.style.display = 'none';
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.left = '0';
+                header.style.width = '100%';
+                header.style.padding = '16px';
+                header.style.backgroundColor = '#fff';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                header.style.zIndex = '1000';
+                header.style.display = 'flex';
+                header.style.justifyContent = 'space-between';
+                header.style.alignItems = 'center';
+                
+                const siteName = document.createElement('div');
+                siteName.textContent = 'Sackdiphat SOUNTHALA';
+                siteName.style.fontWeight = 'bold';
+                
+                header.appendChild(siteName);
+                
+                document.body.insertBefore(header, document.body.firstChild);
+                
+                // Add padding to body on mobile to account for fixed header
+                if (window.innerWidth <= 768) {
+                    document.body.style.paddingTop = '60px';
+                }
+                
+                // Update on resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth <= 768) {
+                        document.body.style.paddingTop = '60px';
+                        header.style.display = 'flex';
+                    } else {
+                        document.body.style.paddingTop = '0';
+                        header.style.display = 'none';
+                    }
+                });
+            }
+        }
+        
         // Image slider functionality
         function initSliders() {
             document.querySelectorAll('.slider-controls').forEach(controls => {
@@ -691,7 +864,40 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', initSliders);
+        document.addEventListener('DOMContentLoaded', function() {
+            initSliders();
+            setupMobileMenu();
+            
+            // Add smooth scrolling for all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add lazy loading to images
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            } else {
+                // Fallback for browsers that don't support lazy loading
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+                document.body.appendChild(script);
+            }
+        });
     </script>
 </body>
 </html>
